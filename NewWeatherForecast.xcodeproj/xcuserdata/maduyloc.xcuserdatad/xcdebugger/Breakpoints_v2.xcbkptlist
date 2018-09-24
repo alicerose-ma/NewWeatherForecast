@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NewWeatherForecast/WeatherDailyCollectionViewController.swift"
+            timestampString = "559222306.849798"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "16"
+            endingLineNumber = "16"
+            landmarkName = "WeatherDailyCollectionViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NewWeatherForecast.WeatherDailyCollectionViewController.weatherData.getter : Swift.Array&lt;NewWeatherForecast.WeatherDaily&gt;"
+                  moduleName = "NewWeatherForecast"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maduyloc/Desktop/Alice/NewWeatherForecast/NewWeatherForecast/NewWeatherForecast/WeatherDailyCollectionViewController.swift"
+                  timestampString = "559122483.7976429"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "109">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NewWeatherForecast.WeatherDailyCollectionViewController.weatherData.setter : Swift.Array&lt;NewWeatherForecast.WeatherDaily&gt;"
+                  moduleName = "NewWeatherForecast"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maduyloc/Desktop/Alice/NewWeatherForecast/NewWeatherForecast/NewWeatherForecast/WeatherDailyCollectionViewController.swift"
+                  timestampString = "559122483.804329"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "112">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NewWeatherForecast.WeatherDailyCollectionViewController.init(collectionViewLayout: __ObjC.UICollectionViewLayout) -&gt; NewWeatherForecast.WeatherDailyCollectionViewController"
+                  moduleName = "NewWeatherForecast"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maduyloc/Desktop/Alice/NewWeatherForecast/NewWeatherForecast/NewWeatherForecast/WeatherDailyCollectionViewController.swift"
+                  timestampString = "559122483.808827"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "163">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NewWeatherForecast.WeatherDailyCollectionViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; NewWeatherForecast.WeatherDailyCollectionViewController"
+                  moduleName = "NewWeatherForecast"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maduyloc/Desktop/Alice/NewWeatherForecast/NewWeatherForecast/NewWeatherForecast/WeatherDailyCollectionViewController.swift"
+                  timestampString = "559122483.813468"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "217">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NewWeatherForecast.WeatherDailyCollectionViewController.init(coder: __ObjC.NSCoder) -&gt; Swift.Optional&lt;NewWeatherForecast.WeatherDailyCollectionViewController&gt;"
+                  moduleName = "NewWeatherForecast"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maduyloc/Desktop/Alice/NewWeatherForecast/NewWeatherForecast/NewWeatherForecast/WeatherDailyCollectionViewController.swift"
+                  timestampString = "559122483.8171329"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "133">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NewWeatherForecast/AppDelegate.swift"
+            timestampString = "559129584.607092"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "13"
+            endingLineNumber = "13"
+            landmarkName = "AppDelegate"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NewWeatherForecast.AppDelegate.__deallocating_deinit"
+                  moduleName = "NewWeatherForecast"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maduyloc/Desktop/Alice/NewWeatherForecast/NewWeatherForecast/NewWeatherForecast/AppDelegate.swift"
+                  timestampString = "559121989.560533"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NewWeatherForecast.AppDelegate.__allocating_init() -&gt; NewWeatherForecast.AppDelegate"
+                  moduleName = "NewWeatherForecast"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maduyloc/Desktop/Alice/NewWeatherForecast/NewWeatherForecast/NewWeatherForecast/AppDelegate.swift"
+                  timestampString = "559121989.564653"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NewWeatherForecast.AppDelegate.init() -&gt; NewWeatherForecast.AppDelegate"
+                  moduleName = "NewWeatherForecast"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maduyloc/Desktop/Alice/NewWeatherForecast/NewWeatherForecast/NewWeatherForecast/AppDelegate.swift"
+                  timestampString = "559121989.568638"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "35">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "main"
+                  moduleName = "NewWeatherForecast"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maduyloc/Desktop/Alice/NewWeatherForecast/NewWeatherForecast/NewWeatherForecast/AppDelegate.swift"
+                  timestampString = "559121989.57639"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "4">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NewWeatherForecast/WeatherDailyCollectionViewController.swift"
+            timestampString = "559222306.860463"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

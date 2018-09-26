@@ -37,7 +37,6 @@ class WeatherDailyCollectionViewController: UICollectionViewController, UISearch
     @IBOutlet weak var segmentTag: UISegmentedControl!
     override func viewDidLoad() {
         super.viewDidLoad()
-       print("Hieu")
        
        //when user choose setting mode, the screen will be blur and a pop up will appear
         let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.dark)

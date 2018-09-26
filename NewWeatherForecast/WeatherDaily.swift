@@ -65,9 +65,6 @@ class WeatherDaily{
     //main api key of our team
     static let apiLink: String = "https://api.darksky.net/forecast/a5fafc7995f9f2c6c2df5af3af69a15b/"
     
-    
-    
-    
     //get daily forecast as array of WeatherDaily
     static func dailyForecast (location: String, completion: @escaping ([WeatherDaily]?) -> ()) {
         let url = apiLink + location
@@ -100,7 +97,7 @@ class WeatherDaily{
         }
         task.resume()
     }
-    //get current weather data as an array
+    //get next hourly forecast weather data as an array
     static func hourlyForecast (location: String, completion: @escaping ([WeatherDaily]?) -> ()) {
         let url = apiLink + location
         
@@ -121,6 +118,35 @@ class WeatherDaily{
                                         forecastArray.append(weatherObject) //append the "hourly" data to the array
                                     }
                                 }
+                            }
+                        }
+                    }
+                }catch {
+                    print(error.localizedDescription)
+                }
+                completion(forecastArray)
+            }
+        }
+        task.resume()
+    }
+    
+    //get current weather data
+    static func currentForecast (location: String, completion: @escaping ([WeatherDaily]?) -> ()) {
+        let url = apiLink + location
+        
+        let request = URLRequest(url: URL(string: url)!)
+        
+        let task = URLSession.shared.dataTask(with: request) { (data:Data?, response:URLResponse?, error:Error?) in
+            
+            var forecastArray:[WeatherDaily] = []
+            
+            if let data = data {
+                
+                do {
+                    if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String:Any] {
+                        if let dailyForecasts = json["currently"] as? [String:Any] {
+                            if let weatherObject = try? WeatherDaily(json: dailyForecasts, isDaily: false) {
+                                forecastArray.append(weatherObject)
                             }
                         }
                     }

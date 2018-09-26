@@ -18,11 +18,21 @@ class WeatherDailyCollectionViewController: UICollectionViewController, UISearch
     
     @IBOutlet var modeView: UIView!
     @IBOutlet weak var modeSelected: UILabel!
-   
+    //Blur effect
     var blurEffectView: UIVisualEffectView!
+    //Object array of weather data
+    var weatherCurrentlyForecast = [WeatherDaily]()
+    var weatherHourlyForecast = [WeatherDaily]()
+    var weatherHistory = [WeatherDaily]()
+    var weatherDailyForecast = [WeatherDaily]()
+    
+    var locationManager = CLLocationManager()
+    var gpsIsOn:Bool = false
+    var defaultLocation:CLLocation? = nil
     var isDaily: Bool!
-    var currentState = state.current
     var isFahrenheit: Bool = true
+    var numberOfItem: Int!
+    var currentState = state.current
     
     //setting Mode
     enum state {
@@ -32,21 +42,54 @@ class WeatherDailyCollectionViewController: UICollectionViewController, UISearch
         case last5days
     }
 
-
     
     @IBOutlet weak var segmentTag: UISegmentedControl!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-       
        //when user choose setting mode, the screen will be blur and a pop up will appear
         let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.dark)
         blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView.frame = view.bounds
         blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         modeView.layer.cornerRadius = 5
-        
+        //Auto adjust width and size of cell when change device and potrait
+        let width = view.frame.width - 20
+        let layout = collectionView?.collectionViewLayout as! UICollectionViewFlowLayout
+        layout.itemSize = CGSize(width: width, height: 168)
+        modeView.layer.cornerRadius = 5
+        updateModetitle()
+        //Get current location
+        locationManager.requestAlwaysAuthorization()
+        if CLLocationManager.locationServicesEnabled(){
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest
+            locationManager.startUpdatingLocation()
+        }
+    }
+    
+    override func numberOfSections(in collectionView: UICollectionView) -> Int {
+        // #warning Incomplete implementation, return the number of sections
+        return 1
+    }
+    // Header to contain search bar
+    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        if (kind == UICollectionElementKindSectionHeader) {
+            let headerView:UICollectionReusableView =  collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "CollectionViewHeader", for: indexPath)
+            
+            return headerView
+        }
+        return UICollectionReusableView()
+    }
+    
+    //Search bar recieve location and put it into api
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+        if let locationString = searchBar.text, !(searchBar.text?.isEmpty)!{
+            updateWeatherForLocation(location: locationString)
+            //updateWeatherForLocation(location: locationString)
+        } else if (searchBar.text?.isEmpty)! && gpsIsOn {
+            getData(withLocation: defaultLocation!.coordinate)
+        }
     }
     
     // MARK: - Navigation
@@ -54,12 +97,7 @@ class WeatherDailyCollectionViewController: UICollectionViewController, UISearch
 
     // MARK: UICollectionViewDataSource
 
-    override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
-    }
     
-   
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         //return the cell with the outputData
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WeatherDailyCell", for: indexPath) as! WeatherDailyCollectionViewCell
@@ -89,6 +127,7 @@ class WeatherDailyCollectionViewController: UICollectionViewController, UISearch
         //then, the data of the the weather of the current location will be update
         getData(withLocation: defaultLocation!.coordinate)
     }
+    
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         if status == CLAuthorizationStatus.denied {
             //if location service access is denied, show popup
@@ -98,6 +137,7 @@ class WeatherDailyCollectionViewController: UICollectionViewController, UISearch
             gpsIsOn = true
         }
     }
+    
     func showLocationPopup() {
         //show alert that location service is denied
         let alertController = UIAlertController(title: "Location access disabled", message: "Turn on location permission to get your current location", preferredStyle: .alert)

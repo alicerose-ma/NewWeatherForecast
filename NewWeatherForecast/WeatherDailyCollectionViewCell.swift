@@ -23,19 +23,7 @@ class WeatherDailyCollectionViewCell: UICollectionViewCell {
     var isDaily: Bool!
     var isFahrenheit: Bool!
     
-    func setWeather(weatherDaily: WeatherDaily, isDaily: Bool, isFahrenheit: Bool) { //appear data on the cell
-        self.isFahrenheit = isFahrenheit
-        self.isDaily = isDaily
-        background.image = UIImage(named: weatherDaily.icon + "bg")
-        weatherImage.image = UIImage(named: weatherDaily.icon)
-        weatherDate.text = convertUnixTimeToRealTime(unixTime: weatherDaily.time, isDaily: self.isDaily)
-        weatherStatus.text = weatherDaily.summary
-        weatherTemp.text = convertUnit(temp: Int(weatherDaily.temperature), isFahrenheit: isFahrenheit)
-        weatherHumid.text = "Humidity \(Int((weatherDaily.humidity)*100)) %"
-        uvIndex.text = "UV \(weatherDaily.uvIndex)"
-        windSpeed.text = "Wind Speed \(Int(weatherDaily.windSpeed)) mph"
-        print(weatherDaily.summary)
-    }
+
     
 }
 

@@ -100,38 +100,7 @@ class WeatherDaily{
         }
         task.resume()
     }
-    //get current weather data as an array
-    static func hourlyForecast (location: String, completion: @escaping ([WeatherDaily]?) -> ()) {
-        let url = apiLink + location
-        
-        let request = URLRequest(url: URL(string: url)!)
-        
-        let task = URLSession.shared.dataTask(with: request) { (data:Data?, response:URLResponse?, error:Error?) in
-            
-            var forecastArray:[WeatherDaily] = []
-            
-            if let data = data {
-                
-                do {
-                    if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String:Any] {
-                        if let dailyForecasts = json["hourly"] as? [String:Any] { // search for "hourly" data
-                            if let dailyData = dailyForecasts["data"] as? [[String:Any]] { //search for "data" in the "hourly" data
-                                for dataPoint in dailyData {
-                                    if let weatherObject = try? WeatherDaily(json: dataPoint, isDaily: false) {
-                                        forecastArray.append(weatherObject) //append the "hourly" data to the array
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }catch {
-                    print(error.localizedDescription)
-                }
-                completion(forecastArray)
-            }
-        }
-        task.resume()
-    }
+    
 
 }
 

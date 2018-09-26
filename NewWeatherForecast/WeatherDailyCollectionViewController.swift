@@ -125,7 +125,7 @@ class WeatherDailyCollectionViewController: UICollectionViewController, UISearch
     }
     
    //when the user click done, the pop up disappears
-    @IBAction func Done(_ sender: Any) 
+    @IBAction func Done(_ sender: Any) {
          animationOut()
     }
     
@@ -137,14 +137,14 @@ class WeatherDailyCollectionViewController: UICollectionViewController, UISearch
     }
     
     //user selected to see hour by hour weather
-    @IBAction func hourByhourTap(_ sender: Any) 
+    @IBAction func hourByhourTap(_ sender: Any) {
         currentState = .hourByhour
         animationOut()
         updateModetitle()
     }
     
    //user selected to see next week weather
-    @IBAction func forwar7daysTap(_ sender: Any) 
+    @IBAction func forwar7daysTap(_ sender: Any) {
         currentState = .forward5days
         animationOut()
         updateModetitle()

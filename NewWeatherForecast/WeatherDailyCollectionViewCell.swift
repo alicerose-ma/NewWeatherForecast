@@ -37,6 +37,34 @@ class WeatherDailyCollectionViewCell: UICollectionViewCell {
         print(weatherDaily.summary)
     }
 
+ //convert time at unit time into readable time
+ func convertUnixTimeToRealTime(unixTime: Int, isDaily: Bool) -> String {
+        let date = Date(timeIntervalSince1970: TimeInterval(unixTime))
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeZone = TimeZone(abbreviation: "GMT+07:00") //Set timezone that you want
+        dateFormatter.locale = NSLocale.current
+        if isDaily{
+            dateFormatter.dateFormat = "yyyy-MM-dd" //Specify your format that you want
+        }
+        else{
+            dateFormatter.dateFormat = "HH:mm"
+        }
+        let strDate = dateFormatter.string(from: date)
+        
+        return strDate
+    }
+    
+ //convert unit of temperature between Fahrenheit and Celsius
+    func convertUnit(temp: Int, isFahrenheit: Bool) -> String {
+        var result: String!
+        if (isFahrenheit == false) {
+            result = "Temperature " + String((temp - 32) * 5/9) + " °C" }
+        else {
+            result = "Temperature " + String(temp) + " °F"
+        }
+        return result
+    }
+    
     
 }
 

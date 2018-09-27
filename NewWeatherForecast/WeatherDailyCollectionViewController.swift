@@ -164,6 +164,83 @@ class WeatherDailyCollectionViewController: UICollectionViewController, UISearch
         
     }
    
+   
+   unc getData(withLocation location: CLLocationCoordinate2D) {
+        print(location)
+        //let locationCoordinate = "\(location.latitude),\(location.longitude)"
+        getHistory(withLocation: location)
+        getCurrentForecast(withLocation: location)
+        getDailyForecast(withLocation: location)
+        getHourlyForecast(withLocation: location)
+    }
+    
+    
+    func getDate(daysToAdd: Int) -> String {
+        let date = Calendar.current.date(byAdding: .day, value: daysToAdd, to: Date())
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        return dateFormatter.string(from: date!)
+    }
+    
+    func getHistory(withLocation location: CLLocationCoordinate2D) {
+        let locationCoordinate = "\(location.latitude),\(location.longitude)"
+        var weatherData = [WeatherDaily]()
+        for i in -7 ...  -1 {
+            WeatherDaily.parseHistory(location: locationCoordinate, time: getDate(daysToAdd: i),
+                                      completion: {(result: WeatherDaily!) in
+                                        if let weatherDailyData = result {
+                                            weatherData.append(weatherDailyData)
+                                            self.weatherHistory = weatherData
+                                        }
+                                        /*
+                                         Since reloadData is a UI API call, it needs to happen on main thread and not background one
+                                         (e.g closures, completion handlers etc), so we dispatch the reloadData statement to
+                                         to main thread */
+                                        DispatchQueue.main.async {
+                                            self.collectionView?.reloadData()
+                                        }
+                                        
+            })
+        }
+    }
+    
+    
+    func getHourlyForecast(withLocation location: CLLocationCoordinate2D) {
+        let locationCoordinate = "\(location.latitude),\(location.longitude)"
+        WeatherDaily.hourlyForecast(location: locationCoordinate, completion: {(result: [WeatherDaily]!) in
+            if let weatherData = result {
+                self.weatherHourlyForecast = weatherData
+                DispatchQueue.main.async {
+                    self.collectionView?.reloadData()
+                }
+            }
+        })
+    }
+    
+    func getDailyForecast(withLocation location: CLLocationCoordinate2D) {
+        let locationCoordinate = "\(location.latitude),\(location.longitude)"
+        WeatherDaily.dailyForecast(location: locationCoordinate, completion: {(result: [WeatherDaily]!) in
+            if let weatherData = result {
+                self.weatherDailyForecast = weatherData
+                DispatchQueue.main.async {
+                    self.collectionView?.reloadData()
+                }
+            }
+        })
+    }
+    
+    func getCurrentForecast(withLocation location: CLLocationCoordinate2D) {
+        let locationCoordinate = "\(location.latitude),\(location.longitude)"
+        WeatherDaily.currentForecast(location: locationCoordinate, completion: {(result: [WeatherDaily]!) in
+            if let weatherData = result {
+                self.weatherCurrentlyForecast = weatherData
+                DispatchQueue.main.async {
+                    self.collectionView?.reloadData()
+                }
+            }
+        })
+    }
+   
    //setting Mode to choose current, hour by hour, next 7 days or last 7 days
     func animationIn() {
         self.view.addSubview(blurEffectView)

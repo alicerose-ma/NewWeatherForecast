@@ -165,7 +165,7 @@ class WeatherDailyCollectionViewController: UICollectionViewController, UISearch
     }
    
    
-   unc getData(withLocation location: CLLocationCoordinate2D) {
+   func getData(withLocation location: CLLocationCoordinate2D) {
         print(location)
         //let locationCoordinate = "\(location.latitude),\(location.longitude)"
         getHistory(withLocation: location)
